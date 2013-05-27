@@ -11,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130527201651) do
+ActiveRecord::Schema.define(:version => 20130527202626) do
 
   create_table "authors", :force => true do |t|
     t.string   "first_name",   :null => false
     t.string   "last_name",    :null => false
-    t.string   "email",        :null => false
     t.integer  "phone_number", :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "authors_id"
   end
 
   create_table "blog_entries", :force => true do |t|
@@ -31,18 +31,18 @@ ActiveRecord::Schema.define(:version => 20130527201651) do
   end
 
   create_table "categories", :force => true do |t|
-    t.string   "blog_title", :null => false
-    t.string   "category",   :null => false
-    t.string   "keyword",    :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "blog_id"
+    t.string   "tags"
   end
 
   create_table "comments", :force => true do |t|
-    t.string   "user_name",  :null => false
     t.text     "comment",    :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.integer  "blog_id"
   end
 
   create_table "users", :force => true do |t|
